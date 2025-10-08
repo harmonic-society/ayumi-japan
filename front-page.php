@@ -19,12 +19,12 @@ get_header();
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    アンケート設計からレポーティングまで<br>
-                    <span class="accent">一貫支援</span>
+                    アンケートの力で、<br>
+                    <span class="accent">ビジネスを正しく動かす。</span>
                 </h1>
                 <p class="hero-subtitle">
-                    データの力で、御社の仮説を検証し、<br>
-                    最適な意思決定を導きます。
+                    設計から分析・レポーティングまで。<br>
+                    オンラインリサーチに特化した専門家が、御社の仮説を検証し、確かな意思決定を支えます。
                 </p>
                 <div class="hero-buttons">
                     <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="button button-primary">サービス詳細</a>
