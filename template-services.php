@@ -22,42 +22,23 @@ get_header();
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <header class="page-header">
-                        <h1 class="page-title"><?php the_title(); ?></h1>
+                        <h1 class="page-title">「聞く」を、設計する。</h1>
+                        <p class="page-subtitle">アンケートには、目的があります。<br>
+                        ayumiは、単なる集計やフォーム作成ではなく、"なぜ聞くのか""誰に聞くのか"を科学的に設計します。</p>
                     </header>
 
-                    <?php if ( has_post_thumbnail() ) : ?>
-                        <div class="hero-image">
-                            <?php the_post_thumbnail( 'full' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                    </div>
-
-                    <!-- サービス概要セクション -->
+                    <!-- 調査設計セクション -->
                     <section class="service-overview">
-                        <h2>サービス概要</h2>
-                        <div class="service-grid">
-                            <div class="service-item">
-                                <div class="service-icon">📊</div>
-                                <h3>調査設計</h3>
-                                <p>誰に・何を・いつ・どれくらい聞くのかを綿密に設計します。貴社の課題に合わせた最適な調査手法をご提案します。</p>
+                        <h2>調査設計</h2>
+                        <div class="service-design-list">
+                            <div class="design-item">
+                                <h3>誰に・何を・いつ・どれくらい聞くのか</h3>
                             </div>
-                            <div class="service-item">
-                                <div class="service-icon">📝</div>
-                                <h3>アンケート実施</h3>
-                                <p>会場調査、オンライン調査、Googleフォームを活用した大量データ収集まで、様々な手法に対応します。</p>
+                            <div class="design-item">
+                                <h3>仮説をもとに調査構造を設計</h3>
                             </div>
-                            <div class="service-item">
-                                <div class="service-icon">📈</div>
-                                <h3>データ分析</h3>
-                                <p>収集したデータを丁寧に分析し、ビジネスに活かせる洞察を抽出します。</p>
-                            </div>
-                            <div class="service-item">
-                                <div class="service-icon">📄</div>
-                                <h3>レポーティング</h3>
-                                <p>わかりやすく、実践的なレポートを作成。経営判断に直結する情報をお届けします。</p>
+                            <div class="design-item">
+                                <h3>データの裏づけから次の一手を導く</h3>
                             </div>
                         </div>
                     </section>
@@ -67,56 +48,42 @@ get_header();
                         <h2>活用領域</h2>
                         <div class="use-case-grid">
                             <div class="use-case-item">
-                                <h4>宣伝・マーケティング</h4>
-                                <p>ターゲット顧客の理解、広告効果測定、ブランド認知度調査</p>
-                            </div>
-                            <div class="use-case-item">
                                 <h4>商品・サービス改善</h4>
-                                <p>ユーザーニーズ把握、機能評価、満足度調査</p>
                             </div>
                             <div class="use-case-item">
-                                <h4>顧客満足度調査</h4>
-                                <p>CS向上のための課題発見、ロイヤルティ測定</p>
+                                <h4>顧客満足度・不満点の抽出</h4>
                             </div>
                             <div class="use-case-item">
-                                <h4>A/Bテスト・検証</h4>
-                                <p>広告クリエイティブ比較、価格設定テスト</p>
+                                <h4>広告施策のA/Bテスト検証</h4>
+                            </div>
+                            <div class="use-case-item">
+                                <h4>UI/UXリサーチ・市場調査</h4>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 強み -->
+                    <!-- ツール・手法 -->
+                    <section class="service-tools">
+                        <h2>ツール・手法</h2>
+                        <div class="tools-list">
+                            <div class="tool-item">
+                                <h3>会場調査・オンライン調査</h3>
+                            </div>
+                            <div class="tool-item">
+                                <h3>Googleフォームのプロ設計・分析運用</h3>
+                            </div>
+                            <div class="tool-item">
+                                <h3>スピードと精度を両立するリサーチオペレーション</h3>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- セクションコピー -->
                     <section class="service-strengths">
-                        <h2>Ayumi Japanの強み</h2>
-                        <div class="strengths-list">
-                            <div class="strength-item">
-                                <div class="strength-number">01</div>
-                                <div class="strength-content">
-                                    <h3>オンラインリサーチのプロフェッショナル</h3>
-                                    <p>専門的な経歴とノウハウで、精度の高い調査を実現します。</p>
-                                </div>
-                            </div>
-                            <div class="strength-item">
-                                <div class="strength-number">02</div>
-                                <div class="strength-content">
-                                    <h3>設計からレポーティングまで一気通貫</h3>
-                                    <p>調査の全工程を一貫してサポート。情報の断絶がありません。</p>
-                                </div>
-                            </div>
-                            <div class="strength-item">
-                                <div class="strength-number">03</div>
-                                <div class="strength-content">
-                                    <h3>法人としての信頼性と体制力</h3>
-                                    <p>フリーランスが多い業界で、安定した体制でサービスを提供します。</p>
-                                </div>
-                            </div>
-                            <div class="strength-item">
-                                <div class="strength-number">04</div>
-                                <div class="strength-content">
-                                    <h3>小回りと柔軟な対応</h3>
-                                    <p>大手にはない機動力で、貴社のニーズに迅速に対応します。</p>
-                                </div>
-                            </div>
+                        <div class="strengths-copy">
+                            <p class="copy-main">スピード × ロジック × 信頼性。</p>
+                            <p class="copy-sub">オンラインリサーチのプロフェッショナルとして、<br>
+                            「小回りが利く体制」と「法人ならではの安心感」で成果を形にします。</p>
                         </div>
                     </section>
 
@@ -151,20 +118,31 @@ get_header();
 
 .page-header {
     text-align: center;
-    padding: 60px 0 40px;
+    padding: 80px 40px 60px;
     background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
     border-radius: 12px;
     margin-bottom: 50px;
 }
 
 .page-title {
-    font-size: 2.5em;
+    font-size: 2.8em;
     color: var(--secondary-color);
     font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.page-subtitle {
+    font-size: 1.15em;
+    color: var(--text-color);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .service-overview,
 .service-use-cases,
+.service-tools,
 .service-strengths,
 .service-cta {
     margin: 60px 0;
@@ -179,6 +157,7 @@ get_header();
 
 .service-overview h2,
 .service-use-cases h2,
+.service-tools h2,
 .service-strengths h2 {
     text-align: center;
     font-size: 2em;
@@ -190,7 +169,7 @@ get_header();
 
 .service-overview h2::after,
 .service-use-cases h2::after,
-.service-strengths h2::after {
+.service-tools h2::after {
     content: '';
     display: block;
     width: 60px;
@@ -200,36 +179,30 @@ get_header();
     border-radius: 2px;
 }
 
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+.service-design-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.service-item {
-    text-align: center;
-    padding: 30px 20px;
+.design-item {
+    padding: 30px 40px;
     background-color: var(--bg-white);
     border-radius: 12px;
-    border: 2px solid var(--border-color);
+    border-left: 5px solid var(--primary-color);
     transition: all 0.3s ease;
 }
 
-.service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-color: var(--primary-color);
+.design-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.service-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.service-item h3 {
+.design-item h3 {
     font-size: 1.3em;
     color: var(--secondary-color);
-    margin-bottom: 15px;
+    font-weight: 600;
+    margin: 0;
 }
 
 .use-case-grid {
@@ -239,52 +212,73 @@ get_header();
 }
 
 .use-case-item {
-    padding: 25px;
+    padding: 30px;
     background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
     border-left: 4px solid var(--accent-color);
     border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.use-case-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 .use-case-item h4 {
     color: var(--secondary-color);
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin: 0;
+    font-weight: 600;
 }
 
-.strengths-list {
+.tools-list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
 }
 
-.strength-item {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    padding: 30px;
+.tool-item {
+    padding: 30px 40px;
     background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
     border-radius: 12px;
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
-.strength-item:hover {
-    border-color: var(--primary-color);
+.tool-item:hover {
+    border-color: var(--accent-color);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.strength-number {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: var(--primary-color);
-    min-width: 80px;
+.tool-item h3 {
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.service-strengths {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
     text-align: center;
 }
 
-.strength-content h3 {
-    font-size: 1.4em;
-    color: var(--secondary-color);
-    margin-bottom: 10px;
+.strengths-copy {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.copy-main {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--bg-white);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.copy-sub {
+    font-size: 1.2em;
+    color: var(--bg-light);
+    line-height: 1.9;
 }
 
 .service-cta {
@@ -324,18 +318,36 @@ get_header();
 }
 
 @media (max-width: 768px) {
-    .service-grid,
     .use-case-grid {
         grid-template-columns: 1fr;
     }
 
-    .strength-item {
-        flex-direction: column;
-        text-align: center;
+    .page-header {
+        padding: 60px 20px 40px;
     }
 
     .page-title {
-        font-size: 1.8em;
+        font-size: 2em;
+    }
+
+    .page-subtitle {
+        font-size: 1em;
+    }
+
+    .copy-main {
+        font-size: 1.6em;
+    }
+
+    .copy-sub {
+        font-size: 1em;
+    }
+
+    .service-overview,
+    .service-use-cases,
+    .service-tools,
+    .service-strengths,
+    .service-cta {
+        padding: 40px 20px;
     }
 }
 </style>
