@@ -7,20 +7,37 @@
 
     // Mobile menu toggle
     const mobileMenuInit = () => {
-        const navigation = document.querySelector('.main-navigation');
-        if (!navigation) return;
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
 
-        const menuToggle = document.createElement('button');
-        menuToggle.classList.add('menu-toggle');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.innerHTML = '<span class="screen-reader-text">メニュー</span>☰';
-
-        navigation.parentNode.insertBefore(menuToggle, navigation);
+        if (!menuToggle || !navMenu) return;
 
         menuToggle.addEventListener('click', function() {
             const expanded = this.getAttribute('aria-expanded') === 'true' || false;
             this.setAttribute('aria-expanded', !expanded);
-            navigation.classList.toggle('toggled');
+            navMenu.classList.toggle('toggled');
+
+            // Animate menu icon
+            const menuIcon = this.querySelector('.menu-icon');
+            if (menuIcon) {
+                menuIcon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(90deg)';
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('toggled')) {
+                navMenu.classList.remove('toggled');
+                menuToggle.setAttribute('aria-expanded', 'false');
+
+                const menuIcon = menuToggle.querySelector('.menu-icon');
+                if (menuIcon) {
+                    menuIcon.style.transform = 'rotate(0deg)';
+                }
+            }
         });
     };
 
