@@ -62,40 +62,22 @@
                         ?>
                         <ul id="primary-menu" class="nav-menu">
                             <li class="<?php echo is_front_page() ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                    <span class="menu-icon-item">🏠</span>
-                                    <span class="menu-text-item">HOME</span>
-                                </a>
+                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">HOME</a>
                             </li>
                             <li class="<?php echo is_page( 'services' ) ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">
-                                    <span class="menu-icon-item">📊</span>
-                                    <span class="menu-text-item">サービス</span>
-                                </a>
+                                <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">サービス</a>
                             </li>
                             <li class="<?php echo is_page( 'about' ) ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">
-                                    <span class="menu-icon-item">🏢</span>
-                                    <span class="menu-text-item">会社概要</span>
-                                </a>
+                                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">会社概要</a>
                             </li>
                             <li class="<?php echo is_home() || is_singular( 'post' ) ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">
-                                    <span class="menu-icon-item">📝</span>
-                                    <span class="menu-text-item">ブログ</span>
-                                </a>
+                                <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">ブログ</a>
                             </li>
                             <li class="<?php echo is_post_type_archive( 'whitepaper' ) || is_singular( 'whitepaper' ) ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/whitepapers/' ) ); ?>">
-                                    <span class="menu-icon-item">📄</span>
-                                    <span class="menu-text-item">ドキュメント</span>
-                                </a>
+                                <a href="<?php echo esc_url( home_url( '/whitepapers/' ) ); ?>">ドキュメント</a>
                             </li>
                             <li class="menu-item-cta <?php echo is_page( 'contact' ) ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
-                                    <span class="menu-icon-item">✉️</span>
-                                    <span class="menu-text-item">お問い合わせ</span>
-                                </a>
+                                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">お問い合わせ</a>
                             </li>
                         </ul>
                         <?php
