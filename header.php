@@ -73,8 +73,8 @@
                                     <span class="menu-text-item">サービス</span>
                                 </a>
                             </li>
-                            <li class="<?php echo is_page( 'company' ) ? 'current-menu-item' : ''; ?>">
-                                <a href="<?php echo esc_url( home_url( '/company/' ) ); ?>">
+                            <li class="<?php echo is_page( 'about' ) ? 'current-menu-item' : ''; ?>">
+                                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">
                                     <span class="menu-icon-item">🏢</span>
                                     <span class="menu-text-item">会社概要</span>
                                 </a>
