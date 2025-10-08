@@ -49,17 +49,15 @@ jobs:
           ssh -i ~/.ssh/deploy_key -p $PORT $USER@$HOST << 'EOF'
             set -e
             THEME_DIR="/home/wp629555/ayumi-jp.com/public_html/wp-content/themes/refine-jewelry-reform"
-            
+
             # ディレクトリが存在しない場合は作成
             mkdir -p "$THEME_DIR"
             cd "$THEME_DIR"
-            
-            # Git設定（必要な場合のみ）
-            if [ -z "$(git config --get user.email)" ]; then
-              echo "Setting up Git config..."
-              git config user.email "deploy@ayumi-jp.com"
-              git config user.name "Deploy Bot"
-            fi
+
+            # 現在のディレクトリ確認
+            echo "Current directory: $(pwd)"
+            echo "Directory contents:"
+            ls -la
 
             # Gitリポジトリが存在するかチェック
             if [ ! -d ".git" ]; then
@@ -72,21 +70,34 @@ jobs:
               fi
               # リポジトリをクローン
               git clone https://github.com/harmonic-society/ayumi-japan.git .
+
+              # Git設定（クローン後）
+              git config user.email "deploy@ayumi-jp.com"
+              git config user.name "Deploy Bot"
+
               echo "Repository cloned successfully"
             else
-              echo "Pulling latest changes..."
+              echo "Repository exists. Pulling latest changes..."
+
+              # Git設定（既存リポジトリの場合）
+              if [ -z "$(git config --get user.email 2>/dev/null)" ]; then
+                echo "Setting up Git config..."
+                git config user.email "deploy@ayumi-jp.com"
+                git config user.name "Deploy Bot"
+              fi
+
               # リモート設定を確認
               git remote -v
 
               # ローカルの変更を破棄して、リモートの最新版で強制的に更新
               git fetch origin
-              git reset --hard FETCH_HEAD
-              echo "Repository updated successfully (forced reset to latest)"
+              git reset --hard origin/main
+              echo "Repository updated successfully"
             fi
-            
-            # ファイル確認
-            echo "Files in directory:"
+
+            # デプロイ後のファイル確認
+            echo "Files in directory after deployment:"
             ls -la
-            
+
             echo "Deployed at $(date)"
           EOF
