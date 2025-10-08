@@ -12,7 +12,10 @@ get_header();
 
 <div class="front-page">
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" <?php if ( get_header_image() ) : ?>style="background-image: url('<?php header_image(); ?>');"<?php endif; ?>>
+        <?php if ( get_header_image() ) : ?>
+            <div class="hero-overlay"></div>
+        <?php endif; ?>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -238,12 +241,36 @@ get_header();
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--bg-cream) 0%, var(--accent-color) 50%, var(--primary-color) 100%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text-primary);
     padding: 140px 0 120px;
     text-align: center;
     position: relative;
     overflow: hidden;
     border-bottom: 3px solid var(--primary-color);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Overlay - 背景画像がある場合のオーバーレイ */
+.hero-overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(249, 246, 241, 0.85) 0%,
+        rgba(232, 197, 168, 0.75) 50%,
+        rgba(212, 175, 135, 0.85) 100%
+    );
+    z-index: 1;
 }
 
 .hero-section::before {
@@ -257,6 +284,7 @@ get_header();
         repeating-linear-gradient(45deg, transparent, transparent 35px, var(--border-color) 35px, var(--border-color) 36px),
         repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--border-color) 35px, var(--border-color) 36px);
     opacity: 0.15;
+    z-index: 2;
 }
 
 .hero-section::after {
@@ -269,11 +297,17 @@ get_header();
     font-size: 1.5em;
     letter-spacing: 30px;
     opacity: 0.4;
+    z-index: 3;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 4;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 5;
 }
 
 .hero-title {
@@ -281,7 +315,9 @@ get_header();
     font-weight: 700;
     margin-bottom: 30px;
     line-height: 1.4;
-    text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+    text-shadow:
+        2px 2px 4px rgba(255,255,255,0.5),
+        0 0 20px rgba(255,255,255,0.3);
 }
 
 .hero-title .accent {
@@ -290,6 +326,9 @@ get_header();
     display: inline-block;
     background: linear-gradient(to bottom, transparent 60%, var(--primary-color) 60%);
     padding: 0 10px;
+    text-shadow:
+        2px 2px 4px rgba(255,255,255,0.7),
+        0 0 30px rgba(255,255,255,0.5);
 }
 
 .hero-subtitle {
@@ -298,6 +337,9 @@ get_header();
     line-height: 1.9;
     color: var(--text-primary);
     font-weight: 500;
+    text-shadow:
+        1px 1px 3px rgba(255,255,255,0.5),
+        0 0 15px rgba(255,255,255,0.3);
 }
 
 .hero-buttons {

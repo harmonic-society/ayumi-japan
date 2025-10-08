@@ -52,6 +52,18 @@ function ayumi_japan_setup() {
         'default-color' => 'ffffff',
     ) );
 
+    // Add theme support for custom header (Hero background)
+    add_theme_support( 'custom-header', array(
+        'default-image'      => '',
+        'width'              => 1920,
+        'height'             => 1080,
+        'flex-width'         => true,
+        'flex-height'        => true,
+        'default-text-color' => '6B5D52',
+        'header-text'        => false,
+        'uploads'            => true,
+    ) );
+
     // Make theme available for translation
     load_theme_textdomain( 'ayumi-japan', get_template_directory() . '/languages' );
 }

@@ -41,16 +41,33 @@ ayumi-japan/
 
 ### Menus
 The theme supports two menu locations:
-- Primary Menu (in header)
-- Footer Menu (in footer)
+- **Primary Menu** (in header) - HOME, サービス, 会社概要, ブログ, ドキュメント, お問い合わせ
+- **Footer Menu** (in footer)
+
+Configure via: `Appearance > Menus`
+
+### Hero Background Image (TOPページ)
+TOPページのヒーローセクションに背景画像を設定できます：
+
+1. WordPress管理画面で `外観 > カスタマイズ > ヘッダー画像` に移動
+2. 「新規画像を追加」をクリック
+3. 画像をアップロード（推奨サイズ: 1920x1080px）
+4. 画像を選択して「公開」
+
+背景画像を設定すると、自動的に美しいオーバーレイが適用され、テキストの視認性が保たれます。
 
 ### Widgets
 The theme includes two widget areas:
 - Sidebar
 - Footer
 
+Configure via: `Appearance > Widgets`
+
 ### Custom Logo
-You can add a custom logo via Appearance > Customize > Site Identity
+You can add a custom logo via `Appearance > Customize > Site Identity`
+
+### Custom Background
+You can customize the site background via `Appearance > Customize > Background`
 
 ## Requirements
 
