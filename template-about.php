@@ -40,7 +40,7 @@ get_header();
                             御社のビジネスを深く理解し、結果につながる調査をお約束します。</p>
 
                             <div class="representative-name">
-                                <p>代表　藤田 ○○</p>
+                                <p>代表　藤田 歩</p>
                             </div>
                         </div>
                     </section>
