@@ -335,3 +335,33 @@ function ayumi_japan_archive_title( $title ) {
     return $title;
 }
 add_filter( 'get_the_archive_title', 'ayumi_japan_archive_title' );
+
+/**
+ * Customizer settings for report sample images slider
+ */
+function ayumi_japan_customize_register( $wp_customize ) {
+    // Add section for report samples
+    $wp_customize->add_section( 'ayumi_japan_report_samples', array(
+        'title'       => __( 'レポート見本スライダー', 'ayumi-japan' ),
+        'description' => __( 'TOPページの提供サービスセクションに表示するレポート見本画像を最大5枚まで登録できます。', 'ayumi-japan' ),
+        'priority'    => 130,
+    ) );
+
+    // Add settings and controls for 5 images
+    for ( $i = 1; $i <= 5; $i++ ) {
+        // Setting
+        $wp_customize->add_setting( 'report_sample_' . $i, array(
+            'default'           => '',
+            'sanitize_callback' => 'absint',
+        ) );
+
+        // Control
+        $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'report_sample_' . $i, array(
+            'label'       => sprintf( __( 'レポート見本 %d', 'ayumi-japan' ), $i ),
+            'section'     => 'ayumi_japan_report_samples',
+            'mime_type'   => 'image',
+            'description' => __( '推奨サイズ: 縦長（例: 600x800px）', 'ayumi-japan' ),
+        ) ) );
+    }
+}
+add_action( 'customize_register', 'ayumi_japan_customize_register' );

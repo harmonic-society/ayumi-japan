@@ -56,7 +56,8 @@ get_header();
     <section class="services-overview">
         <div class="container">
             <h2 class="section-title">提供サービス</h2>
-            <div class="services-grid">
+            <div class="services-layout">
+                <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>調査設計</h3>
@@ -77,6 +78,44 @@ get_header();
                     <h3>レポーティング</h3>
                     <p>経営判断に直結する、わかりやすく実践的なレポートを作成します。</p>
                 </div>
+            </div>
+
+            <?php
+            // Get report sample images from customizer
+            $report_samples = array();
+            for ( $i = 1; $i <= 5; $i++ ) {
+                $image_id = get_theme_mod( 'report_sample_' . $i );
+                if ( $image_id ) {
+                    $image_url = wp_get_attachment_image_url( $image_id, 'large' );
+                    if ( $image_url ) {
+                        $report_samples[] = $image_url;
+                    }
+                }
+            }
+
+            if ( ! empty( $report_samples ) ) :
+                ?>
+                <div class="report-samples-slider">
+                    <h3 class="slider-title">レポート見本</h3>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            <?php foreach ( $report_samples as $image_url ) : ?>
+                                <div class="slider-item">
+                                    <img src="<?php echo esc_url( $image_url ); ?>" alt="レポート見本">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <button class="slider-btn slider-prev" aria-label="前へ">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn slider-next" aria-label="次へ">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <?php
+            endif;
+            ?>
             </div>
             <div class="section-cta">
                 <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="button">サービス詳細を見る →</a>
@@ -455,9 +494,16 @@ section {
 }
 
 /* Services Overview */
+.services-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 50px;
+    align-items: start;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
@@ -523,6 +569,93 @@ section {
 .service-card p {
     color: var(--text-secondary);
     line-height: 1.8;
+}
+
+/* Report Samples Slider */
+.report-samples-slider {
+    position: sticky;
+    top: 100px;
+}
+
+.slider-title {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.slider-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+    padding: 20px;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.slider-item {
+    flex: 0 0 100%;
+    padding: 0 10px;
+}
+
+.slider-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--text-primary);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 135, 0.4);
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 135, 0.6);
+}
+
+.slider-prev {
+    left: 10px;
+}
+
+.slider-next {
+    right: 10px;
 }
 
 /* Use Cases */
@@ -824,6 +957,19 @@ section {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .services-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .report-samples-slider {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-section {
         padding: 80px 0 60px;
@@ -857,8 +1003,93 @@ section {
     section {
         padding: 50px 0;
     }
+
+    .report-samples-slider {
+        max-width: 100%;
+    }
+
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Report Samples Slider
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        const sliderTrack = sliderContainer.querySelector('.slider-track');
+        const sliderItems = sliderContainer.querySelectorAll('.slider-item');
+        const prevBtn = sliderContainer.querySelector('.slider-prev');
+        const nextBtn = sliderContainer.querySelector('.slider-next');
+
+        if (sliderItems.length > 0) {
+            let currentIndex = 0;
+            const totalSlides = sliderItems.length;
+
+            function updateSlider() {
+                const offset = -currentIndex * 100;
+                sliderTrack.style.transform = `translateX(${offset}%)`;
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', nextSlide);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', prevSlide);
+            }
+
+            // Auto slide every 5 seconds
+            let autoSlideInterval = setInterval(nextSlide, 5000);
+
+            // Pause auto slide on hover
+            sliderContainer.addEventListener('mouseenter', function() {
+                clearInterval(autoSlideInterval);
+            });
+
+            sliderContainer.addEventListener('mouseleave', function() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            });
+
+            // Touch support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            sliderContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            sliderContainer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    nextSlide();
+                }
+                if (touchEndX > touchStartX + 50) {
+                    prevSlide();
+                }
+            }
+        }
+    }
+});
+</script>
 
 <?php
 get_footer();
