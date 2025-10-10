@@ -23,14 +23,6 @@
                         <?php bloginfo( 'name' ); ?>
                     </a>
                 </p>
-                <p>
-                    <?php
-                    printf(
-                        esc_html__( 'Powered by %s', 'ayumi-japan' ),
-                        '<a href="https://wordpress.org/">WordPress</a>'
-                    );
-                    ?>
-                </p>
             </div>
 
             <?php
