@@ -58,22 +58,22 @@ get_header();
             <h2 class="section-title">提供サービス</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🎯</div>
+                    <div class="service-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>調査設計</h3>
                     <p>誰に・何を・いつ・どれくらい聞くのか。貴社の課題に合わせた最適な調査を設計します。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>データ収集</h3>
                     <p>会場調査、オンライン調査、Googleフォームなど、様々な手法で大量データを収集。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>データ分析</h3>
                     <p>収集したデータを丁寧に分析し、ビジネスに活かせる洞察を抽出します。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📄</div>
+                    <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                     <h3>レポーティング</h3>
                     <p>経営判断に直結する、わかりやすく実践的なレポートを作成します。</p>
                 </div>
@@ -500,6 +500,17 @@ section {
 .service-icon {
     font-size: 3.5em;
     margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.service-icon i {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon i {
+    transform: scale(1.1);
+    color: var(--accent-color);
 }
 
 .service-card h3 {
