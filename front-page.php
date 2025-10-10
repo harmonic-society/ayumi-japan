@@ -41,7 +41,7 @@ get_header();
             <div class="message-content">
                 <p class="lead-text">
                     名刺交換後、「どんな事業をしているの？」とよく聞かれます。<br>
-                    私たちは<strong>「アンケートのプロフェッショナル」</strong>です。
+                    ayumiは<strong>「アンケートのプロフェッショナル」</strong>です。
                 </p>
                 <p>
                     調査設計・データ収集・分析・レポーティングまで、アンケートに関わる全ての工程を一貫してサポート。<br>
