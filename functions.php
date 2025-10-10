@@ -343,12 +343,12 @@ function ayumi_japan_customize_register( $wp_customize ) {
     // Add section for report samples
     $wp_customize->add_section( 'ayumi_japan_report_samples', array(
         'title'       => __( 'レポート見本スライダー', 'ayumi-japan' ),
-        'description' => __( 'TOPページの提供サービスセクションに表示するレポート見本画像を最大5枚まで登録できます。', 'ayumi-japan' ),
+        'description' => __( 'TOPページの提供サービスセクションに表示するレポート見本画像を最大6枚まで登録できます。', 'ayumi-japan' ),
         'priority'    => 130,
     ) );
 
-    // Add settings and controls for 5 images
-    for ( $i = 1; $i <= 5; $i++ ) {
+    // Add settings and controls for 6 images
+    for ( $i = 1; $i <= 6; $i++ ) {
         // Setting
         $wp_customize->add_setting( 'report_sample_' . $i, array(
             'default'           => '',

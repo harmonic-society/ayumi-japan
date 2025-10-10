@@ -83,7 +83,7 @@ get_header();
             <?php
             // Get report sample images from customizer
             $report_samples = array();
-            for ( $i = 1; $i <= 5; $i++ ) {
+            for ( $i = 1; $i <= 6; $i++ ) {
                 $image_id = get_theme_mod( 'report_sample_' . $i );
                 if ( $image_id ) {
                     $image_url = wp_get_attachment_image_url( $image_id, 'large' );
