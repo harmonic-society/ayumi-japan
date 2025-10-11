@@ -108,8 +108,12 @@ get_header();
                                 <div class="whitepaper-actions">
                                     <a href="<?php the_permalink(); ?>" class="view-details">詳細を見る →</a>
                                     <?php if ( $download_url ) : ?>
-                                        <a href="<?php echo esc_url( $download_url ); ?>" class="download-direct" target="_blank" rel="noopener">
-                                            ⬇ ダウンロード
+                                        <?php
+                                        // ダウンロードページのURLを生成
+                                        $download_page_url = home_url('/download/?doc=' . get_the_ID());
+                                        ?>
+                                        <a href="<?php echo esc_url( $download_page_url ); ?>" class="download-direct">
+                                            <i class="fas fa-download"></i> ダウンロード
                                         </a>
                                     <?php endif; ?>
                                 </div>
