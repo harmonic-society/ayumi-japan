@@ -38,16 +38,30 @@ get_header();
     <section class="core-message">
         <div class="container">
             <h2 class="section-title">「アンケート外注」とは？</h2>
-            <div class="message-content">
-                <p class="lead-text">
-                    名刺交換後、「どんな事業をしているの？」とよく聞かれます。<br>
-                    ayumiは<strong>「アンケートのプロフェッショナル」</strong>です。
-                </p>
-                <p>
-                    調査設計・データ収集・分析・レポーティングまで、アンケートに関わる全ての工程を一貫してサポート。<br>
-                    論理的な設計力と、オンラインリサーチ専門の豊富な経験で、<br>
-                    貴社のビジネス課題解決を支援します。
-                </p>
+            <?php
+            // Get profile photo from customizer
+            $profile_photo_id = get_theme_mod( 'profile_photo' );
+            $profile_photo_url = $profile_photo_id ? wp_get_attachment_image_url( $profile_photo_id, 'medium' ) : '';
+            ?>
+            <div class="message-layout">
+                <?php if ( $profile_photo_url ) : ?>
+                    <div class="profile-photo-container">
+                        <div class="profile-photo">
+                            <img src="<?php echo esc_url( $profile_photo_url ); ?>" alt="ayumi プロフィール写真">
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="message-content <?php echo $profile_photo_url ? 'with-photo' : ''; ?>">
+                    <p class="lead-text">
+                        名刺交換後、「どんな事業をしているの？」とよく聞かれます。<br>
+                        ayumiは<strong>「アンケートのプロフェッショナル」</strong>です。
+                    </p>
+                    <p>
+                        調査設計・データ収集・分析・レポーティングまで、アンケートに関わる全ての工程を一貫してサポート。<br>
+                        論理的な設計力と、オンラインリサーチ専門の豊富な経験で、<br>
+                        貴社のビジネス課題解決を支援します。
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -474,7 +488,59 @@ section {
     background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
 }
 
+.message-layout {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-photo-container {
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(212, 175, 135, 0.3);
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+}
+
+.profile-photo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .message-content {
+    flex: 1;
+    text-align: left;
+}
+
+.message-content.with-photo {
+    text-align: left;
+}
+
+.message-content:not(.with-photo) {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
@@ -985,6 +1051,20 @@ section {
 
     .section-title {
         font-size: 1.8em;
+    }
+
+    .message-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .message-content.with-photo {
+        text-align: center;
     }
 
     .services-grid,

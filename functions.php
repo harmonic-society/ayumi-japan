@@ -363,5 +363,26 @@ function ayumi_japan_customize_register( $wp_customize ) {
             'description' => __( '推奨サイズ: 縦長（例: 600x800px）', 'ayumi-japan' ),
         ) ) );
     }
+
+    // Add section for profile photo
+    $wp_customize->add_section( 'ayumi_japan_profile', array(
+        'title'       => __( 'プロフィール写真', 'ayumi-japan' ),
+        'description' => __( 'TOPページの「アンケート外注」とは？セクションに表示するプロフィール写真を設定します。', 'ayumi-japan' ),
+        'priority'    => 131,
+    ) );
+
+    // Profile photo setting
+    $wp_customize->add_setting( 'profile_photo', array(
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+    ) );
+
+    // Profile photo control
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'profile_photo', array(
+        'label'       => __( 'プロフィール写真', 'ayumi-japan' ),
+        'section'     => 'ayumi_japan_profile',
+        'mime_type'   => 'image',
+        'description' => __( '推奨サイズ: 正方形または円形（例: 400x400px）', 'ayumi-japan' ),
+    ) ) );
 }
 add_action( 'customize_register', 'ayumi_japan_customize_register' );
