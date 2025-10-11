@@ -19,7 +19,7 @@ get_header();
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    アンケートの力で、<br>
+                    <span class="title-line-1">アンケートの力で、</span><br class="desktop-br">
                     <span class="accent">ビジネスを正しく動かす。</span>
                 </h1>
                 <p class="hero-subtitle">
@@ -1069,6 +1069,15 @@ section {
 
     .hero-title {
         font-size: 2em;
+    }
+
+    .hero-title .desktop-br {
+        display: none;
+    }
+
+    .hero-title .title-line-1::after {
+        content: '\A';
+        white-space: pre;
     }
 
     .hero-subtitle {
