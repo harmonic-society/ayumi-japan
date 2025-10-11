@@ -61,18 +61,42 @@ get_header();
                     <!-- 活用領域 -->
                     <section class="service-use-cases">
                         <h2>活用領域</h2>
+                        <p class="section-intro">データから課題を発見し、改善へつなげる</p>
                         <div class="use-case-grid">
                             <div class="use-case-item">
                                 <h4>商品・サービス改善</h4>
+                                <p class="use-case-description">
+                                    利用者の声を定量的に把握することで、機能・価格・デザインなどの改善ポイントを明確にします。
+                                    たとえば、「購入理由」や「離脱理由」を数値で捉えることで、開発チームがどこを優先的に改良すべきかを判断できます。
+                                    結果として、顧客ニーズに合致した商品開発・サービス改善が可能になります。
+                                </p>
                             </div>
                             <div class="use-case-item">
                                 <h4>顧客満足度・不満点の抽出</h4>
+                                <p class="use-case-description">
+                                    顧客満足度調査を通じて、利用体験の良し悪しを定量化します。
+                                    NPS（ネット・プロモーター・スコア）などの指標を用いれば、顧客のロイヤルティを可視化し、
+                                    不満の多いポイントを早期に発見・改善できます。
+                                    継続的に実施することで、顧客との関係性を深めるサイクルを構築できます。
+                                </p>
                             </div>
                             <div class="use-case-item">
                                 <h4>広告施策のA/Bテスト検証</h4>
+                                <p class="use-case-description">
+                                    広告やLPの訴求案を複数提示し、どのメッセージが最も響くかをデータで検証します。
+                                    クリック率・印象評価・購買意欲などの指標を組み合わせることで、
+                                    感覚ではなくエビデンスに基づいたクリエイティブ最適化が可能になります。
+                                    新規キャンペーン設計時の仮説づくりにも活用できます。
+                                </p>
                             </div>
                             <div class="use-case-item">
                                 <h4>UI/UXリサーチ・市場調査</h4>
+                                <p class="use-case-description">
+                                    Webサイトやアプリの操作体験をユーザー視点で分析し、UI/UXの改善余地を明らかにします。
+                                    加えて、競合比較や市場全体のトレンドを把握することで、
+                                    新サービス立ち上げやブランド戦略の方向性を定量的に検討できます。
+                                    ユーザーの行動データと組み合わせれば、より精度の高い意思決定が可能です。
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -475,30 +499,74 @@ get_header();
     background: linear-gradient(to bottom, transparent 60%, rgba(212, 175, 135, 0.3) 60%);
 }
 
+.service-use-cases {
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.3em;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: -20px auto 50px;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
 .use-case-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .use-case-item {
-    padding: 30px;
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
-    border-left: 4px solid var(--accent-color);
-    border-radius: 8px;
+    padding: 40px 35px;
+    background-color: var(--bg-white);
+    border-radius: 16px;
+    border-top: 5px solid var(--accent-color);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.use-case-item:nth-child(1) {
+    border-top-color: var(--primary-color);
+}
+
+.use-case-item:nth-child(2) {
+    border-top-color: var(--accent-color);
+}
+
+.use-case-item:nth-child(3) {
+    border-top-color: var(--secondary-color);
+}
+
+.use-case-item:nth-child(4) {
+    border-top-color: #D4AF87;
 }
 
 .use-case-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .use-case-item h4 {
     color: var(--secondary-color);
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin: 0;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.use-case-description {
+    color: var(--text-secondary);
+    font-size: 1em;
+    line-height: 1.9;
+    margin: 0;
 }
 
 .tools-list {
@@ -631,6 +699,24 @@ get_header();
     }
 
     .design-description {
+        font-size: 0.95em;
+        line-height: 1.8;
+    }
+
+    .section-intro {
+        font-size: 1.1em;
+        margin: -10px auto 35px;
+    }
+
+    .use-case-item {
+        padding: 30px 25px;
+    }
+
+    .use-case-item h4 {
+        font-size: 1.2em;
+    }
+
+    .use-case-description {
         font-size: 0.95em;
         line-height: 1.8;
     }
