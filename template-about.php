@@ -64,6 +64,35 @@ get_header();
                         </div>
                     </section>
 
+                    <!-- 会社情報セクション -->
+                    <section class="company-info-section">
+                        <h2>会社情報</h2>
+                        <div class="company-info-content">
+                            <dl class="info-list">
+                                <div class="info-item">
+                                    <dt>企業名</dt>
+                                    <dd>株式会社あゆみジャパン創造社</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>住所</dt>
+                                    <dd>千葉県千葉市中央区中央２丁目５番１号<br>千葉中央ツインビル２号館７階ＣＨＩＢＡＬＡＢＯ</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>設立</dt>
+                                    <dd>2025年1月</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>代表取締役</dt>
+                                    <dd>藤田 歩</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>URL</dt>
+                                    <dd><a href="https://ayumi-jp.com" target="_blank" rel="noopener noreferrer">https://ayumi-jp.com</a></dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </section>
+
                     <!-- CTA -->
                     <section class="about-cta">
                         <div class="cta-box">
@@ -104,6 +133,7 @@ get_header();
 
 .message-section,
 .philosophy-section,
+.company-info-section,
 .about-cta {
     margin: 60px 0;
     padding: 60px 50px;
@@ -116,7 +146,8 @@ get_header();
 }
 
 .message-section h2,
-.philosophy-section h2 {
+.philosophy-section h2,
+.company-info-section h2 {
     text-align: center;
     font-size: 2em;
     color: var(--secondary-color);
@@ -126,7 +157,8 @@ get_header();
 }
 
 .message-section h2::after,
-.philosophy-section h2::after {
+.philosophy-section h2::after,
+.company-info-section h2::after {
     content: '';
     display: block;
     width: 60px;
@@ -225,6 +257,62 @@ get_header();
     line-height: 1.6;
 }
 
+.company-info-section {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-cream) 100%);
+}
+
+.company-info-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-list {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 40px 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.info-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 30px;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item dt {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
+}
+
+.info-item dd {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+
+.info-item dd a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.info-item dd a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 .about-cta {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
     color: var(--bg-white);
@@ -274,6 +362,7 @@ get_header();
 
     .message-section,
     .philosophy-section,
+    .company-info-section,
     .about-cta {
         padding: 40px 25px;
     }
@@ -293,6 +382,25 @@ get_header();
 
     .philosophy-item h3 {
         font-size: 1.2em;
+    }
+
+    .info-list {
+        padding: 30px 20px;
+    }
+
+    .info-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 20px 0;
+    }
+
+    .info-item dt {
+        font-size: 1em;
+        padding-top: 0;
+    }
+
+    .info-item dd {
+        font-size: 0.95em;
     }
 
     .cta-button {
