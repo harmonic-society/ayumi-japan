@@ -386,3 +386,252 @@ function ayumi_japan_customize_register( $wp_customize ) {
     ) ) );
 }
 add_action( 'customize_register', 'ayumi_japan_customize_register' );
+
+/**
+ * Register Custom Post Type: Download Requests
+ */
+function ayumi_japan_register_download_request_cpt() {
+    $labels = array(
+        'name'                  => _x( 'ダウンロードリクエスト', 'Post Type General Name', 'ayumi-japan' ),
+        'singular_name'         => _x( 'ダウンロードリクエスト', 'Post Type Singular Name', 'ayumi-japan' ),
+        'menu_name'             => __( 'ダウンロードリクエスト', 'ayumi-japan' ),
+        'name_admin_bar'        => __( 'ダウンロードリクエスト', 'ayumi-japan' ),
+        'all_items'             => __( '全てのリクエスト', 'ayumi-japan' ),
+        'add_new_item'          => __( '新規追加', 'ayumi-japan' ),
+        'add_new'               => __( '新規追加', 'ayumi-japan' ),
+        'new_item'              => __( '新規リクエスト', 'ayumi-japan' ),
+        'edit_item'             => __( '詳細を表示', 'ayumi-japan' ),
+        'update_item'           => __( '更新', 'ayumi-japan' ),
+        'view_item'             => __( '表示', 'ayumi-japan' ),
+        'search_items'          => __( 'リクエストを検索', 'ayumi-japan' ),
+        'not_found'             => __( '見つかりませんでした', 'ayumi-japan' ),
+    );
+
+    $args = array(
+        'label'                 => __( 'ダウンロードリクエスト', 'ayumi-japan' ),
+        'description'           => __( '資料ダウンロードフォームからの送信データ', 'ayumi-japan' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title' ),
+        'hierarchical'          => false,
+        'public'                => false,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 26,
+        'menu_icon'             => 'dashicons-download',
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'capability_type'       => 'post',
+        'capabilities'          => array(
+            'create_posts' => 'do_not_allow',
+        ),
+        'map_meta_cap'          => true,
+    );
+
+    register_post_type( 'download_request', $args );
+}
+add_action( 'init', 'ayumi_japan_register_download_request_cpt', 0 );
+
+/**
+ * Add custom columns to download request list
+ */
+function ayumi_japan_download_request_columns( $columns ) {
+    $new_columns = array(
+        'cb'           => $columns['cb'],
+        'title'        => '会社名',
+        'contact_name' => 'お名前',
+        'email'        => 'メールアドレス',
+        'phone'        => '電話番号',
+        'document'     => 'ダウンロード資料',
+        'date'         => '日時',
+    );
+    return $new_columns;
+}
+add_filter( 'manage_download_request_posts_columns', 'ayumi_japan_download_request_columns' );
+
+/**
+ * Populate custom columns
+ */
+function ayumi_japan_download_request_custom_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'contact_name':
+            echo esc_html( get_post_meta( $post_id, '_contact_name', true ) );
+            break;
+        case 'email':
+            echo esc_html( get_post_meta( $post_id, '_email', true ) );
+            break;
+        case 'phone':
+            $phone = get_post_meta( $post_id, '_phone', true );
+            echo $phone ? esc_html( $phone ) : '—';
+            break;
+        case 'document':
+            $doc_id = get_post_meta( $post_id, '_document_id', true );
+            if ( $doc_id ) {
+                $doc_title = get_the_title( $doc_id );
+                echo '<a href="' . esc_url( get_edit_post_link( $doc_id ) ) . '">' . esc_html( $doc_title ) . '</a>';
+            } else {
+                echo '—';
+            }
+            break;
+    }
+}
+add_action( 'manage_download_request_posts_custom_column', 'ayumi_japan_download_request_custom_column', 10, 2 );
+
+/**
+ * Make custom columns sortable
+ */
+function ayumi_japan_download_request_sortable_columns( $columns ) {
+    $columns['contact_name'] = 'contact_name';
+    $columns['email'] = 'email';
+    $columns['document'] = 'document';
+    return $columns;
+}
+add_filter( 'manage_edit-download_request_sortable_columns', 'ayumi_japan_download_request_sortable_columns' );
+
+/**
+ * Add meta box for download request details
+ */
+function ayumi_japan_add_download_request_meta_box() {
+    add_meta_box(
+        'download_request_details',
+        __( 'リクエスト詳細', 'ayumi-japan' ),
+        'ayumi_japan_download_request_meta_box_callback',
+        'download_request',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'ayumi_japan_add_download_request_meta_box' );
+
+/**
+ * Meta box callback for download request details
+ */
+function ayumi_japan_download_request_meta_box_callback( $post ) {
+    $contact_name = get_post_meta( $post->ID, '_contact_name', true );
+    $email = get_post_meta( $post->ID, '_email', true );
+    $phone = get_post_meta( $post->ID, '_phone', true );
+    $message = get_post_meta( $post->ID, '_message', true );
+    $document_id = get_post_meta( $post->ID, '_document_id', true );
+    $download_url = get_post_meta( $post->ID, '_download_url', true );
+    ?>
+    <table class="form-table">
+        <tr>
+            <th><strong>会社名</strong></th>
+            <td><?php echo esc_html( $post->post_title ); ?></td>
+        </tr>
+        <tr>
+            <th><strong>お名前</strong></th>
+            <td><?php echo esc_html( $contact_name ); ?></td>
+        </tr>
+        <tr>
+            <th><strong>メールアドレス</strong></th>
+            <td><a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a></td>
+        </tr>
+        <?php if ( $phone ) : ?>
+        <tr>
+            <th><strong>電話番号</strong></th>
+            <td><a href="tel:<?php echo esc_attr( $phone ); ?>"><?php echo esc_html( $phone ); ?></a></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ( $message ) : ?>
+        <tr>
+            <th><strong>ご質問・ご要望</strong></th>
+            <td><?php echo nl2br( esc_html( $message ) ); ?></td>
+        </tr>
+        <?php endif; ?>
+        <tr>
+            <th><strong>ダウンロード資料</strong></th>
+            <td>
+                <?php
+                if ( $document_id ) {
+                    $doc_title = get_the_title( $document_id );
+                    echo '<a href="' . esc_url( get_edit_post_link( $document_id ) ) . '">' . esc_html( $doc_title ) . '</a>';
+                } else {
+                    echo '—';
+                }
+                ?>
+            </td>
+        </tr>
+        <?php if ( $download_url ) : ?>
+        <tr>
+            <th><strong>ダウンロードURL</strong></th>
+            <td><a href="<?php echo esc_url( $download_url ); ?>" target="_blank"><?php echo esc_html( $download_url ); ?></a></td>
+        </tr>
+        <?php endif; ?>
+        <tr>
+            <th><strong>リクエスト日時</strong></th>
+            <td><?php echo get_the_date( 'Y年m月d日 H:i', $post->ID ); ?></td>
+        </tr>
+    </table>
+    <style>
+        .form-table th {
+            width: 200px;
+            font-weight: 600;
+            padding: 15px 10px;
+        }
+        .form-table td {
+            padding: 15px 10px;
+        }
+    </style>
+    <?php
+}
+
+/**
+ * AJAX handler for download form submission
+ */
+function ayumi_japan_handle_download_form() {
+    // Verify nonce
+    if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'download_form_nonce' ) ) {
+        wp_send_json_error( array( 'message' => 'セキュリティチェックに失敗しました。' ) );
+    }
+
+    // Get form data
+    $company = isset( $_POST['company'] ) ? sanitize_text_field( $_POST['company'] ) : '';
+    $name = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : '';
+    $email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : '';
+    $phone = isset( $_POST['phone'] ) ? sanitize_text_field( $_POST['phone'] ) : '';
+    $message = isset( $_POST['message'] ) ? sanitize_textarea_field( $_POST['message'] ) : '';
+    $document_id = isset( $_POST['document_id'] ) ? intval( $_POST['document_id'] ) : 0;
+    $download_url = isset( $_POST['download_url'] ) ? esc_url_raw( $_POST['download_url'] ) : '';
+
+    // Validate required fields
+    if ( empty( $company ) || empty( $name ) || empty( $email ) ) {
+        wp_send_json_error( array( 'message' => '必須項目を入力してください。' ) );
+    }
+
+    // Validate email
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( array( 'message' => '有効なメールアドレスを入力してください。' ) );
+    }
+
+    // Create download request post
+    $post_data = array(
+        'post_title'  => $company,
+        'post_type'   => 'download_request',
+        'post_status' => 'publish',
+    );
+
+    $post_id = wp_insert_post( $post_data );
+
+    if ( is_wp_error( $post_id ) ) {
+        wp_send_json_error( array( 'message' => 'データの保存に失敗しました。' ) );
+    }
+
+    // Save meta data
+    update_post_meta( $post_id, '_contact_name', $name );
+    update_post_meta( $post_id, '_email', $email );
+    update_post_meta( $post_id, '_phone', $phone );
+    update_post_meta( $post_id, '_message', $message );
+    update_post_meta( $post_id, '_document_id', $document_id );
+    update_post_meta( $post_id, '_download_url', $download_url );
+
+    wp_send_json_success( array(
+        'message' => 'ありがとうございます！',
+        'download_url' => $download_url,
+    ) );
+}
+add_action( 'wp_ajax_download_form_submit', 'ayumi_japan_handle_download_form' );
+add_action( 'wp_ajax_nopriv_download_form_submit', 'ayumi_japan_handle_download_form' );

@@ -364,28 +364,67 @@ if ($whitepaper_id) {
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('simple-download-form');
     const messageDiv = document.getElementById('download-message');
+    const submitButton = form ? form.querySelector('.submit-button') : null;
 
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
+            // ボタンを無効化
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 送信中...';
+            }
+
             // フォームデータを取得
             const formData = new FormData(form);
-            const downloadUrl = formData.get('download_url');
 
-            // フォームを非表示にしてメッセージを表示
-            form.style.display = 'none';
-            messageDiv.style.display = 'block';
+            // AJAXリクエストを送信
+            fetch('<?php echo admin_url( 'admin-ajax.php' ); ?>', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    action: 'download_form_submit',
+                    nonce: '<?php echo wp_create_nonce( 'download_form_nonce' ); ?>',
+                    company: formData.get('company'),
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message'),
+                    document_id: formData.get('document_id'),
+                    download_url: formData.get('download_url')
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // フォームを非表示にしてメッセージを表示
+                    form.style.display = 'none';
+                    messageDiv.style.display = 'block';
 
-            // ダウンロードを開始
-            setTimeout(function() {
-                if (downloadUrl) {
-                    window.location.href = downloadUrl;
+                    // ダウンロードを開始
+                    setTimeout(function() {
+                        if (data.data.download_url) {
+                            window.location.href = data.data.download_url;
+                        }
+                    }, 1000);
+                } else {
+                    alert(data.data.message || 'エラーが発生しました。もう一度お試しください。');
+                    // ボタンを再度有効化
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = '<i class="fas fa-download"></i> ダウンロード';
+                    }
                 }
-            }, 1000);
-
-            // ここでフォームデータをサーバーに送信する処理を追加可能
-            // 例: fetch APIを使ってデータベースに保存
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('エラーが発生しました。もう一度お試しください。');
+                // ボタンを再度有効化
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-download"></i> ダウンロード';
+                }
+            });
         });
     }
 });
