@@ -104,15 +104,37 @@ get_header();
                     <!-- ツール・手法 -->
                     <section class="service-tools">
                         <h2>ツール・手法</h2>
+                        <p class="section-intro">目的・ターゲットに応じて最適な調査設計を実施</p>
                         <div class="tools-list">
                             <div class="tool-item">
                                 <h3>会場調査・オンライン調査</h3>
+                                <p class="tool-description">
+                                    調査対象や目的に合わせて、リアル（会場）とオンラインの両面からデータを収集します。
+                                    会場調査では、試飲・試食・製品体験などの実物評価や行動観察が可能です。
+                                    一方、オンライン調査では、Googleフォームやモニター配信などを活用し、
+                                    短期間で大規模なサンプル収集ができます。
+                                    両者を組み合わせることで、質と量を両立した多角的な分析が可能になります。
+                                </p>
                             </div>
                             <div class="tool-item">
                                 <h3>Googleフォームのプロ設計・分析運用</h3>
+                                <p class="tool-description">
+                                    Googleフォームを活用した調査を、プロフェッショナルな視点で設計・運用します。
+                                    質問構成・分岐ロジック・回答導線を最適化し、離脱を防ぎつつ回答精度を高めるフォームを作成。
+                                    さらに、回答結果は自動でスプレッドシートやダッシュボードに連携し、
+                                    分析レポートや可視化グラフとしてすぐに活用できます。
+                                    「コストを抑えつつ高品質なリサーチを行いたい」企業様に最適です。
+                                </p>
                             </div>
                             <div class="tool-item">
                                 <h3>スピードと精度を両立するリサーチオペレーション</h3>
+                                <p class="tool-description">
+                                    当社では、調査設計からデータクリーニング・集計・分析までを一気通貫で対応します。
+                                    クラウドツールや自動化スクリプトを活用することで、短納期でも高精度な結果を実現。
+                                    また、回答傾向の異常値検出や属性別の再配分など、
+                                    統計的な品質管理プロセスを取り入れています。
+                                    「スピード重視」「精度重視」いずれのニーズにも柔軟に対応可能です。
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -569,30 +591,76 @@ get_header();
     margin: 0;
 }
 
+.service-tools {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+}
+
 .tools-list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .tool-item {
-    padding: 30px 40px;
-    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
-    border-radius: 12px;
-    border: 2px solid var(--border-color);
+    padding: 45px 50px;
+    background-color: var(--bg-white);
+    border-radius: 16px;
+    border-left: 6px solid var(--primary-color);
     transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 175, 135, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tool-item:nth-child(2) {
+    border-left-color: var(--accent-color);
+}
+
+.tool-item:nth-child(3) {
+    border-left-color: var(--secondary-color);
 }
 
 .tool-item:hover {
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.tool-item:hover::before {
+    opacity: 1;
 }
 
 .tool-item h3 {
-    font-size: 1.3em;
+    font-size: 1.6em;
     color: var(--secondary-color);
-    font-weight: 600;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+}
+
+.tool-description {
+    color: var(--text-secondary);
+    font-size: 1.05em;
+    line-height: 2;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .service-strengths {
@@ -717,6 +785,20 @@ get_header();
     }
 
     .use-case-description {
+        font-size: 0.95em;
+        line-height: 1.8;
+    }
+
+    .tool-item {
+        padding: 35px 30px;
+    }
+
+    .tool-item h3 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .tool-description {
         font-size: 0.95em;
         line-height: 1.8;
     }
