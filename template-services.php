@@ -33,12 +33,27 @@ get_header();
                         <div class="service-design-list">
                             <div class="design-item">
                                 <h3>誰に・何を・いつ・どれくらい聞くのか</h3>
+                                <p class="design-description">
+                                    アンケート調査の設計では、まず<strong>「誰に」「何を」「いつ」「どれくらい」聞くのか</strong>を明確に定めます。<br>
+                                    たとえば、「首都圏在住の20〜30代社会人」を対象に、「お酒の購買行動」や「小口配送サービスの利用意向」を尋ねる、などといったように、対象者と質問テーマを具体化します。<br>
+                                    さらに、調査の実施時期（例：繁忙期前後など季節要因を考慮）や、回答者数・サンプルサイズ（例：300サンプル以上で統計的に有意な傾向を把握）を決めます。
+                                </p>
                             </div>
                             <div class="design-item">
                                 <h3>仮説をもとに調査構造を設計</h3>
+                                <p class="design-description">
+                                    調査は「なんとなく質問を並べる」ものではなく、<strong>仮説をもとに構造的に設計</strong>します。<br>
+                                    たとえば、「配達の速さよりも柔軟な受け取り方法が満足度に影響しているのではないか」という仮説を立てたうえで、それを検証できるように質問を組み立てます。<br>
+                                    質問は、属性（性別・年代など）→現状行動→意識・満足度→意向・改善要望といったように、論理的な順序で配置し、回答者が自然に答えられる流れを作ります。
+                                </p>
                             </div>
                             <div class="design-item">
-                                <h3>データの裏づけから次の一手を導く</h3>
+                                <h3>データの裏付けから次の一手を導く</h3>
+                                <p class="design-description">
+                                    得られたデータを単なる数字として終わらせず、事業や施策の<strong>「次の一手」を導く根拠</strong>として活用します。<br>
+                                    たとえば、アンケート結果から「平日夜の受け取り希望が多い」と分かれば、配送スケジュールの見直しや夜間便の拡充を検討できます。<br>
+                                    こうした設計・分析の一貫性が、「感覚ではなくデータに基づく意思決定」を支える基盤になります。
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -418,23 +433,46 @@ get_header();
 }
 
 .design-item {
-    padding: 30px 40px;
+    padding: 40px 45px;
     background-color: var(--bg-white);
-    border-radius: 12px;
-    border-left: 5px solid var(--primary-color);
+    border-radius: 16px;
+    border-left: 6px solid var(--primary-color);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.design-item:nth-child(2) {
+    border-left-color: var(--accent-color);
+}
+
+.design-item:nth-child(3) {
+    border-left-color: var(--secondary-color);
 }
 
 .design-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .design-item h3 {
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: var(--secondary-color);
-    font-weight: 600;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+.design-description {
+    color: var(--text-secondary);
+    font-size: 1.05em;
+    line-height: 2;
     margin: 0;
+}
+
+.design-description strong {
+    color: var(--text-primary);
+    font-weight: 700;
+    background: linear-gradient(to bottom, transparent 60%, rgba(212, 175, 135, 0.3) 60%);
 }
 
 .use-case-grid {
@@ -581,6 +619,20 @@ get_header();
     .service-strengths,
     .service-cta {
         padding: 40px 20px;
+    }
+
+    .design-item {
+        padding: 30px 25px;
+    }
+
+    .design-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .design-description {
+        font-size: 0.95em;
+        line-height: 1.8;
     }
 
     .flow-step {
