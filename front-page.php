@@ -282,7 +282,7 @@ get_header();
                 <p>まずはお気軽にお問い合わせください。貴社の課題をお聞かせいただき、最適なソリューションをご提案します。</p>
                 <div class="cta-buttons">
                     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button button-primary button-large">お問い合わせ</a>
-                    <a href="<?php echo esc_url( home_url( '/company/' ) ); ?>" class="button button-outline button-large">会社概要</a>
+                    <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="button button-outline button-large">会社概要</a>
                 </div>
             </div>
         </div>
