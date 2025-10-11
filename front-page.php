@@ -49,6 +49,10 @@ get_header();
                         <div class="profile-photo">
                             <img src="<?php echo esc_url( $profile_photo_url ); ?>" alt="ayumi プロフィール写真">
                         </div>
+                        <div class="profile-caption">
+                            <p class="profile-title">代表取締役</p>
+                            <p class="profile-name">ayumi</p>
+                        </div>
                     </div>
                 <?php endif; ?>
                 <div class="message-content <?php echo $profile_photo_url ? 'with-photo' : ''; ?>">
@@ -498,6 +502,7 @@ section {
 
 .profile-photo-container {
     flex-shrink: 0;
+    text-align: center;
 }
 
 .profile-photo {
@@ -509,6 +514,7 @@ section {
     box-shadow: 0 10px 30px rgba(212, 175, 135, 0.3);
     position: relative;
     background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+    margin: 0 auto;
 }
 
 .profile-photo::before {
@@ -529,6 +535,26 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.profile-caption {
+    margin-top: 20px;
+}
+
+.profile-title {
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.profile-name {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .message-content {
