@@ -54,12 +54,16 @@ get_header();
                     <!-- Download CTA Box -->
                     <?php if ( $download_url ) : ?>
                         <div class="download-cta-box">
-                            <div class="download-icon">📥</div>
+                            <div class="download-icon"><i class="fas fa-file-download"></i></div>
                             <h2>この資料をダウンロード</h2>
-                            <p>アンケート調査に関する実践的なノウハウをまとめた資料です。無料でダウンロードいただけます。</p>
-                            <a href="<?php echo esc_url( $download_url ); ?>" class="download-button" target="_blank" rel="noopener">
-                                <span class="button-icon">⬇</span>
-                                <span class="button-text">ダウンロード</span>
+                            <p>アンケート調査に関する実践的なノウハウをまとめた資料です。フォームに必要事項をご入力いただくと、無料でダウンロードいただけます。</p>
+                            <?php
+                            // ダウンロードページのURLを生成
+                            $download_page_url = home_url('/download/?doc=' . get_the_ID());
+                            ?>
+                            <a href="<?php echo esc_url( $download_page_url ); ?>" class="download-button">
+                                <span class="button-icon"><i class="fas fa-download"></i></span>
+                                <span class="button-text">フォーム入力してダウンロード</span>
                                 <?php if ( $file_size ) : ?>
                                     <span class="button-size">(<?php echo esc_html( $file_size ); ?>)</span>
                                 <?php endif; ?>
@@ -75,8 +79,8 @@ get_header();
                     <?php if ( $download_url ) : ?>
                         <div class="download-cta-bottom">
                             <p>この資料が役に立ちましたら、ぜひダウンロードしてご活用ください。</p>
-                            <a href="<?php echo esc_url( $download_url ); ?>" class="download-button-bottom" target="_blank" rel="noopener">
-                                資料をダウンロード →
+                            <a href="<?php echo esc_url( $download_page_url ); ?>" class="download-button-bottom">
+                                フォーム入力してダウンロード <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     <?php endif; ?>
