@@ -1068,7 +1068,7 @@ section {
     }
 
     .hero-title {
-        font-size: 2em;
+        font-size: 1.6em;
     }
 
     .hero-title .desktop-br {
@@ -1082,6 +1082,12 @@ section {
 
     .hero-subtitle {
         font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5em;
     }
 
     .section-title {
