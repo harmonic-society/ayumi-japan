@@ -47,7 +47,6 @@
                 <nav id="site-navigation" class="main-navigation">
                     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
                         <span class="menu-icon"></span>
-                        <span class="menu-text">メニュー</span>
                     </button>
                     <?php
                     // メニューが設定されていない場合のフォールバック
