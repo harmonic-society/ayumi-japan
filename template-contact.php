@@ -48,6 +48,17 @@ get_header();
                                 <?php
                             }
                             ?>
+
+                            <!-- 注意事項 -->
+                            <div class="contact-notice">
+                                <p>※当社の営業時間は平日9:00〜18:00となります。<br>
+                                営業時間外、土日祝日、年末年始などにつきましては、翌営業日以降の対応となりますのでご了承ください。</p>
+
+                                <p>※メールアドレス、電話番号の記入に誤りがありますと、当社よりご連絡ができない場合がございますので、ご注意ください。受付完了メールが届かない場合は恐れ入りますが再度お問い合わせください。</p>
+
+                                <p>※このお問合せフォームはお客様専用です。営業及び勧誘目的でのご利用は固くお断りします。<br>
+                                営業メールには返信いたしかねますのであらかじめご了承ください。</p>
+                            </div>
                         </div>
                     </section>
 
@@ -256,6 +267,26 @@ get_header();
     margin: 10px 0 0;
 }
 
+/* Contact Notice */
+.contact-notice {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(212, 175, 135, 0.05) 0%, rgba(232, 197, 168, 0.05) 100%);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.contact-notice p {
+    color: var(--text-secondary);
+    font-size: 0.95em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.contact-notice p:last-child {
+    margin-bottom: 0;
+}
+
 /* FAQ Section */
 .faq-section {
     background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
@@ -346,6 +377,15 @@ get_header();
 
     .form-container {
         padding: 40px 25px;
+    }
+
+    .contact-notice {
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .contact-notice p {
+        font-size: 0.9em;
     }
 
     .faq-section {
