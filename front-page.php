@@ -407,19 +407,20 @@ get_header();
 .button-primary {
     background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
     color: var(--secondary-color);
-    padding: 16px 45px;
-    font-size: 1.15em;
+    padding: 20px 60px;
+    font-size: 1.3em;
     font-weight: 700;
     border: 3px solid var(--secondary-color);
-    box-shadow: 0 6px 20px var(--shadow-medium);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    border-radius: 50px;
 }
 
 .button-primary:hover {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     border-color: var(--primary-color);
     color: var(--text-primary);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px var(--shadow-medium);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 35px var(--shadow-medium);
 }
 
 .button-secondary {
@@ -1081,6 +1082,11 @@ section {
     .hero-subtitle {
         font-size: 1.1em;
     }
+
+    .button-primary {
+        padding: 18px 45px;
+        font-size: 1.1em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1117,6 +1123,12 @@ section {
     .cta-buttons {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .button-primary {
+        padding: 16px 35px;
+        font-size: 1em;
+        width: 100%;
     }
 
     section {
