@@ -281,10 +281,7 @@ get_header();
             <div class="cta-box">
                 <h2>アンケート調査のご相談はこちら</h2>
                 <p>まずはお気軽にお問い合わせください。貴社の課題をお聞かせいただき、最適なソリューションをご提案します。</p>
-                <div class="cta-buttons">
-                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">お問い合わせ</a>
-                    <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="button button-outline button-large">会社概要</a>
-                </div>
+                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">お問い合わせ</a>
             </div>
         </div>
     </section>
