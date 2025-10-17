@@ -827,6 +827,12 @@ section {
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 15px;
+    display: inline-block;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.strength-card:hover .strength-number {
+    transform: rotateY(360deg);
 }
 
 .strength-card h3 {
