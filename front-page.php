@@ -80,22 +80,22 @@ get_header();
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>調査設計</h3>
-                    <p>誰に・何を・いつ・どれくらい聞くのか。貴社の課題に合わせた最適な調査を設計します。</p>
+                    <p>誰に・何を・どう聞くのか。貴社の課題・納期・ご予算に最適な調査を設計します。</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>データ収集</h3>
-                    <p>会場調査、オンライン調査、Googleフォームなど、様々な手法で大量データを収集。</p>
+                    <p>貴社会員や外部モニターを活用したデータ収集オペレーションを行います。</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>データ分析</h3>
-                    <p>収集したデータを丁寧に分析し、ビジネスに活かせる洞察を抽出します。</p>
+                    <p>収集したデータを集計し、ファインディングスを整理・分析します。</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                     <h3>レポーティング</h3>
-                    <p>経営判断に直結する、わかりやすく実践的なレポートを作成します。</p>
+                    <p>貴社内でご活用しやすい実践的なレポートを作成します。</p>
                 </div>
             </div>
 
@@ -186,7 +186,7 @@ get_header();
     <!-- Strengths -->
     <section class="strengths">
         <div class="container">
-            <h2 class="section-title">Ayumi Japanが選ばれる理由</h2>
+            <h2 class="section-title">あゆみジャパン創造社が選ばれる理由</h2>
             <div class="strengths-grid">
                 <div class="strength-card">
                     <div class="strength-number">01</div>
@@ -196,7 +196,7 @@ get_header();
                 <div class="strength-card">
                     <div class="strength-number">02</div>
                     <h3>一気通貫</h3>
-                    <p>設計からレポーティングまで、情報の断絶なく一貫サポート</p>
+                    <p>設計からレポーティングまで一貫サポート</p>
                 </div>
                 <div class="strength-card">
                     <div class="strength-number">03</div>
@@ -206,7 +206,7 @@ get_header();
                 <div class="strength-card">
                     <div class="strength-number">04</div>
                     <h3>柔軟性</h3>
-                    <p>大手にはない小回りと、貴社ニーズに合わせた柔軟な対応力</p>
+                    <p>小回りと、貴社ニーズに合わせた柔軟な対応力</p>
                 </div>
             </div>
         </div>
