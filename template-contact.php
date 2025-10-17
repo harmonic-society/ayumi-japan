@@ -82,15 +82,6 @@ get_header();
                                     <p>はい、対応可能です。小規模な調査から大規模な調査まで、幅広く対応しております。</p>
                                 </div>
                             </div>
-                            <div class="faq-item">
-                                <h3 class="faq-question">
-                                    <i class="fas fa-question-circle"></i>
-                                    オンライン調査だけでなく、会場調査も可能ですか？
-                                </h3>
-                                <div class="faq-answer">
-                                    <p>はい、可能です。オンライン調査、会場調査、両方を組み合わせた調査など、目的に応じて最適な手法をご提案いたします。</p>
-                                </div>
-                            </div>
                         </div>
                     </section>
                 </article>
