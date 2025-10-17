@@ -51,29 +51,6 @@ get_header();
                         </div>
                     </section>
 
-                    <!-- お問い合わせ情報 -->
-                    <section class="contact-info-section">
-                        <h2>その他のお問い合わせ方法</h2>
-                        <div class="contact-info-grid">
-                            <div class="contact-info-card">
-                                <div class="info-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <h3>メールでのお問い合わせ</h3>
-                                <p>直接メールでのお問い合わせも承っております。</p>
-                                <a href="mailto:info@ayumi-jp.com" class="info-link">info@ayumi-jp.com</a>
-                            </div>
-                            <div class="contact-info-card">
-                                <div class="info-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <h3>営業時間</h3>
-                                <p>平日 9:00〜18:00<br>（土日祝日は休業）</p>
-                                <p class="info-note">お問い合わせは24時間受け付けております。</p>
-                            </div>
-                        </div>
-                    </section>
-
                     <!-- よくあるご質問 -->
                     <section class="faq-section">
                         <h2>よくあるご質問</h2>
@@ -288,95 +265,6 @@ get_header();
     margin: 10px 0 0;
 }
 
-/* Contact Info Section */
-.contact-info-section {
-    margin-bottom: 80px;
-}
-
-.contact-info-section h2 {
-    text-align: center;
-    font-size: 2em;
-    color: var(--secondary-color);
-    margin-bottom: 50px;
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 20px;
-}
-
-.contact-info-section h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-    margin: 15px auto 0;
-    border-radius: 2px;
-}
-
-.contact-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.contact-info-card {
-    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
-    padding: 45px 35px;
-    border-radius: 16px;
-    text-align: center;
-    border: 2px solid var(--border-color);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.contact-info-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    border-color: var(--primary-color);
-}
-
-.info-icon {
-    font-size: 3em;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.contact-info-card h3 {
-    font-size: 1.4em;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.contact-info-card p {
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 10px;
-}
-
-.info-link {
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 1.1em;
-    text-decoration: none;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-}
-
-.info-link:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-.info-note {
-    font-size: 0.9em;
-    color: var(--text-secondary);
-    margin-top: 15px;
-}
-
 /* FAQ Section */
 .faq-section {
     background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
@@ -467,10 +355,6 @@ get_header();
 
     .form-container {
         padding: 40px 25px;
-    }
-
-    .contact-info-grid {
-        grid-template-columns: 1fr;
     }
 
     .faq-section {
