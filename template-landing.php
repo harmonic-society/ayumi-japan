@@ -72,7 +72,7 @@
                         <div class="lp-cta-box">
                             <h2 class="lp-cta-title">今すぐお問い合わせ</h2>
                             <p class="lp-cta-text">無料相談・お見積りはこちらから</p>
-                            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="lp-cta-button">お問い合わせフォームへ</a>
+                            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">お問い合わせフォームへ</a>
                         </div>
                     </div>
                 </section>

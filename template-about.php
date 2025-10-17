@@ -98,7 +98,7 @@ get_header();
                         <div class="cta-box">
                             <h2>お問い合わせはこちら</h2>
                             <p>リサーチに関するご相談、お見積もりなど、お気軽にお問い合わせください。</p>
-                            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button cta-button">お問い合わせ</a>
+                            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">お問い合わせ</a>
                         </div>
                     </section>
                 </article>

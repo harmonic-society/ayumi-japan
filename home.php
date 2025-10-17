@@ -202,7 +202,7 @@ get_header();
                     <div class="sidebar-widget sidebar-cta">
                         <h3 class="widget-title">お問い合わせ</h3>
                         <p>アンケート調査のご相談はお気軽にお問い合わせください。</p>
-                        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="sidebar-cta-button">
+                        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">
                             お問い合わせ
                         </a>
                     </div>

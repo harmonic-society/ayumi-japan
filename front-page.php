@@ -28,7 +28,7 @@ get_header();
                 </p>
                 <div class="hero-buttons">
                     <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="button button-primary">サービス詳細</a>
-                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button button-secondary">お問い合わせ</a>
+                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">お問い合わせ</a>
                 </div>
             </div>
         </div>
@@ -282,7 +282,7 @@ get_header();
                 <h2>アンケート調査のご相談はこちら</h2>
                 <p>まずはお気軽にお問い合わせください。貴社の課題をお聞かせいただき、最適なソリューションをご提案します。</p>
                 <div class="cta-buttons">
-                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button button-primary button-large">お問い合わせ</a>
+                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="button-contact">お問い合わせ</a>
                     <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="button button-outline button-large">会社概要</a>
                 </div>
             </div>
