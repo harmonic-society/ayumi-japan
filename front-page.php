@@ -24,7 +24,7 @@ get_header();
                 </h1>
                 <p class="hero-subtitle">
                     設計から分析・レポーティングまで。<br>
-                    オンラインリサーチに特化した専門家が、御社の仮説を検証し、確かな意思決定を支えます。
+                    オンラインリサーチに特化した専門家が、貴社の仮説を検証し、確かな意思決定を支えます。
                 </p>
                 <div class="hero-buttons">
                     <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="button button-primary">サービス詳細</a>
@@ -51,19 +51,20 @@ get_header();
                         </div>
                         <div class="profile-caption">
                             <p class="profile-title">代表取締役</p>
-                            <p class="profile-name">ayumi</p>
+                            <p class="profile-name">藤田</p>
                         </div>
                     </div>
                 <?php endif; ?>
                 <div class="message-content <?php echo $profile_photo_url ? 'with-photo' : ''; ?>">
                     <p class="lead-text">
                         名刺交換後、「どんな事業をしているの？」とよく聞かれます。<br>
-                        ayumiは<strong>「アンケートのプロフェッショナル」</strong>です。
+                        あゆみジャパン創造社は<strong>「アンケートのプロフェッショナル」</strong>です。
                     </p>
                     <p>
-                        調査設計・データ収集・分析・レポーティングまで、アンケートに関わる全ての工程を一貫してサポート。<br>
+                        調査設計・データ収集・分析・レポーティングまで、<br>
+                        アンケートに関わる全ての工程を一貫してサポートします。<br>
                         論理的な設計力と、オンラインリサーチ専門の豊富な経験で、<br>
-                        貴社のビジネス課題解決を支援します。
+                        貴社のビジネス課題解決のヒントとなる情報収集を支援します。
                     </p>
                 </div>
             </div>
