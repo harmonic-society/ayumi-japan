@@ -1,6 +1,8 @@
 # Ayumi Japan WordPress Theme
 
-A beautiful Japanese-themed WordPress theme.
+アンケートの力で、ビジネスを正しく動かす。
+
+A beautiful Japanese-themed WordPress theme for Ayumi Japan - a survey and market research company.
 
 ## Features
 
